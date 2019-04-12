@@ -1,0 +1,19 @@
+jsobyra-agent.sources  = netcatSource
+jsobyra-agent.channels = memChannel
+jsobyra-agent.sinks    = HDFSsink
+
+jsobyra-agent.channels.channel.capacity = 1000
+
+jsobyra-agent.sources.netcatSource.bind     = localhost
+jsobyra-agent.sources.netcatSource.type     = netcat
+jsobyra-agent.sources.netcatSource.port     = 10011
+jsobyra-agent.sources.netcatSource.channels = memChannel
+
+jsobyra-agent.channels.memChannel.type   = memory
+jsobyra-agent.channels.memChannel.capacity = 1000
+
+jsobyra-agent.sinks.HDFSsink.type         =  hdfs
+jsobyra-agent.sinks.HDFSsink.channel      = memChannel
+jsobyra-agent.sinks.HDFSsink.hdfs.path = hdfs://ip-10-0-0-207.us-west-1.compute.internal:8020/user/jsobyra/events/%y/%m/%d
+jsobyra-agent.sinks.HDFSsink.hdfs.useLocalTimeStamp = true
+jsobyra-agent.sinks.HDFSsink.hdfs.fileType = DataStream

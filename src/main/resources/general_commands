@@ -1,0 +1,3 @@
+flume-ng agent -f jsobyra-flume.conf -n jsobyra-agent
+scp test1.csv jsobyra@gu_gateway:/home/jsobyra
+cat test2.csv | nc 127.0.0.1 10013
