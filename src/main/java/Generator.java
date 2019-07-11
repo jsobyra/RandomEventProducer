@@ -17,8 +17,8 @@ public class Generator {
         Double productPrice = 2 * random.nextGaussian() + 2;
         LocalDate purchaseDate = LocalDate.of(2019, 10, random.nextInt(6) + 1);
         String productCategory = "productCategory" + id / 10;
-        String ipAddress = random.nextInt(256) + "." + random.nextInt(256)
-                + "." + random.nextInt(256) + "." + random.nextInt(256);
+        String ipAddress = random.nextInt(10) + "." + random.nextInt(10)
+                + "." + random.nextInt(10) + "." + (random.nextInt(10) + 1);
         return new RandomEvent(productName, productPrice, purchaseDate, productCategory, ipAddress);
     }
 }

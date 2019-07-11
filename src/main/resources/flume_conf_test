@@ -8,6 +8,8 @@ jsobyra-agent.sources.netcatSource.bind     = localhost
 jsobyra-agent.sources.netcatSource.type     = netcat
 jsobyra-agent.sources.netcatSource.port     = 10013
 jsobyra-agent.sources.netcatSource.channels = memChannel
+jsobyra-agent.sources.netcatSource.interceptors = i1
+jsobyra-agent.sources.netcatSource.interceptors.i1.type = CustomInterceptor$Builder
 
 jsobyra-agent.channels.memChannel.type   = memory
 jsobyra-agent.channels.memChannel.capacity = 1000

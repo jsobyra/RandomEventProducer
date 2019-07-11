@@ -1,3 +1,10 @@
-flume-ng agent -f jsobyra-flume.conf -n jsobyra-agent
-scp test1.csv jsobyra@gu_gateway:/home/jsobyra
-cat test2.csv | nc 127.0.0.1 10013
+flume-ng agent -f flume_conf -n jsobyra-agent &
+cat test.csv | nc 127.0.0.1 10013
+netstat -tunlp
+docker cp test2.csv 6b84cc3607f8:/test.csv
+docker cp IpParser-1.0-SNAPSHOT.jar 6b84cc3607f8:/IpParser.jar
+
+
+sqoop export --connect jdbc:mysql://localhost:3306/results?useSSL=false --username root --password cloudera --table result1 --export-dir=/user/cloudera/result1/000000_0;
+sqoop export --connect jdbc:mysql://localhost:3306/results?useSSL=false --username root --password cloudera --table result2 --export-dir=/user/cloudera/result2/000000_0;
+sqoop export --connect jdbc:mysql://localhost:3306/results?useSSL=false --username root --password cloudera --table result3 --export-dir=/user/cloudera/result3/000000_0_copy_1;
